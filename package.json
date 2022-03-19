@@ -1,0 +1,31 @@
+{
+  "name": "blacklist-redis",
+  "version": "0.0.1",
+  "description": "VoIPBL and APIBan client that populates a redis set with blacklisted IPs",
+  "main": "./bin/index.js",
+  "scripts": {
+    "jslint": "eslint bin",
+    "start": "node ./bin/index.js"
+  },
+  "bin": {
+    "apiban-redis": "./bin/index.js"
+  },
+  "keywords": [
+    "APIBan",
+    "VoIPBL",
+    "sip"
+  ],
+  "author": "Dave Horton",
+  "license": "MIT",
+  "dependencies": {
+    "bent": "^7.3.12",
+    "cidr-range": "^2.0.0",
+    "mysql2": "^2.3.3",
+    "pino": "^7.8.0",
+    "redis": "^4.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-plugin-promise": "^6.0.0"
+  }
+}
