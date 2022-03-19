@@ -13,6 +13,10 @@ const connection = mysql.createConnection({
   password:  process.env.SIPLY_MYSQL_PASSWORD || 'siply'
 });
 
+const sleep = (ms) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
 /* validate environment */
 const {
   APIBAN_API_KEY,
@@ -50,6 +54,7 @@ const getAPIBAN = async() => {
       ips = [...ips, ...response.ipaddress];
       id = response.ID;
       console.log(`fetched ${response.ipaddress.length} ips from APIBAN, next ID ${id}`);
+      await sleep(3000);
     } catch (err) {
       if (ips.length) return ips;
       console.error('Failed to get blacklist from apiban', err);
